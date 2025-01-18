@@ -32,28 +32,24 @@ class Result
         int scoredAlice = 0;
         int scoredBob = 0;
         
-        foreach(int n in a)
+        for(int i = 0; i < a.Count && i < b.Count; i++)
         {
-            foreach(int m in b)
+            if(a[i] > b[i])
             {
-                if(n > m)
-                {
-                    scoredAlice++;
-                } 
-                else if(n < m)
-                {
-                    scoredBob++;
-                }
-                else
-                {
-                    continue;
-                }
+                scoredAlice++;
+            }
+            else if(a[i] < b[i])
+            {
+                scoredBob++;
+            }
+            else
+            {
+                continue;
             }
         }
-        
         result.Add(scoredAlice);
         result.Add(scoredBob);
-        
+            
         return result;
     }
 
