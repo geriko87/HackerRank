@@ -31,13 +31,11 @@ class Result
             {
                 if(j < (n - i - 1))
                 {
-                    doubleCross [i, j] = ' ';
-                    Console.Write(doubleCross [i, j]);
+                    Console.Write(' ');
                 }
                 else
                 {
-                    doubleCross [i, j] = '#';
-                    Console.Write(doubleCross [i, j]);        
+                    Console.Write('#');        
                 }
             }
             Console.WriteLine();
