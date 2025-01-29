@@ -24,24 +24,23 @@ class Result
 
     public static string timeConversion(string s)
     {
-        string timeInString = s.Substring(0, s.Length - 2);
-        string[] timeParts = timeInString.Split(':');
-        int timeInHours = int.Parse(timeParts[0]);
-        int modifiedTime = 0;
-        
-        if(s[s.Length - 2] == 'P' && timeInHours < 12)
+        DateTime timeInHours = DateTime.Parse(s);
+        DateTime modifiedTime = DateTime.MinValue;
+
+        if (s[s.Length - 2] == 'P' && timeInHours.Hour < 12)
         {
-            modifiedTime = timeInHours + 12;   
+            modifiedTime = timeInHours.AddHours(12);
         }
-        else if(s[s.Length - 2] == 'A' && timeInHours == 12)
+        else if (s[s.Length - 2] == 'A' && timeInHours.Hour == 12)
         {
-            modifiedTime = 0;
+            modifiedTime = DateTime.MinValue;
         }
         else
         {
             modifiedTime = timeInHours;
         }
-        timeInString = String.Join(':', modifiedTime.ToString("D2"), timeParts[1], timeParts[2]);
+
+        string timeInString = modifiedTime.ToString("HH:mm:ss");
         return timeInString;
     }
 
