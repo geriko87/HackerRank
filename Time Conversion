@@ -25,6 +25,10 @@ class Result
     public static string timeConversion(string s)
     {
         DateTime timeInHours = DateTime.Parse(s);
+        string timeInString = timeInHours.ToString("HH:mm:ss");
+        return timeInString;
+
+        /*DateTime timeInHours = DateTime.Parse(s);
         DateTime modifiedTime = DateTime.MinValue;
 
         if (s[s.Length - 2] == 'P' && timeInHours.Hour < 12)
@@ -41,7 +45,7 @@ class Result
         }
 
         string timeInString = modifiedTime.ToString("HH:mm:ss");
-        return timeInString;
+        return timeInString;*/
     }
 
 }
