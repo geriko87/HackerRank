@@ -29,29 +29,26 @@ class Result
 
     public static void countApplesAndOranges(int s, int t, int a, int b, List<int> apples, List<int> oranges)
     {
-        int applesOnRoof = 0;
-        int orangesOnRoof = 0;
-        
-        foreach(int apple in apples)
-        {
-            int positionOfApples = a + apple;
-            if(positionOfApples >= s && positionOfApples <= t)
-            {
-                applesOnRoof++;
-            }
-        }
-        foreach(int orange in oranges)
-        {
-            int positionOfOranges = b + orange;
-            if(positionOfOranges >= s && positionOfOranges <= t)
-            {
-                orangesOnRoof++;
-            }
-        }
-        Console.WriteLine(applesOnRoof);
-        Console.WriteLine(orangesOnRoof);
-    }
+            int applesOnRoof = summaryFunction(a, s, t, apples);
+            int orangesOnRoof = summaryFunction(b, s, t, oranges);
 
+            Console.WriteLine(applesOnRoof);
+            Console.WriteLine(orangesOnRoof);
+    }
+    
+    public static int summaryFunction(int fruit, int startDistance, int endDistance, List<int> fruits)
+    {
+        int fruitCount = 0;
+        foreach (int f in fruits)
+        {
+            int positionOfFruit = fruit + f;
+            if (positionOfFruit >= startDistance && positionOfFruit <= endDistance)
+            {
+                fruitCount++;
+            }
+        }
+        return fruitCount;
+    }
 }
 
 class Solution
