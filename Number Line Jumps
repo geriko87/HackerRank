@@ -28,7 +28,7 @@ class Result
 
     public static string kangaroo(float x1, float v1, float x2, float v2)
     {     
-        string result = "";
+        string result = "NO";
         
         float n = (x2 - x1)/(v1 - v2);
         
@@ -36,11 +36,7 @@ class Result
         {
             result = "YES";
         }
-        else
-        {
-           result = "NO";
-        }
-        
+             
         return result;
     }
 
