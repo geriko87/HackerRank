@@ -26,26 +26,19 @@ class Result
      *  4. INTEGER v2
      */
 
-    public static string kangaroo(int x1, int v1, int x2, int v2)
+    public static string kangaroo(float x1, float v1, float x2, float v2)
     {     
         string result = "";
-        bool conclusion = false;
         
-        while(!conclusion)
-        { 
-            x1 += v1;
-            x2 += v2;
-            
-            if(x1 == x2)
-            {
-                result = "YES";
-                conclusion = true;
-            }
-            else if (x2 > 100000000)
-            {
-                result = "NO";
-                break;  
-            }
+        float n = (x2 - x1)/(v1 - v2);
+        
+        if(n >= 0 && n % 1 == 0)
+        {
+            result = "YES";
+        }
+        else
+        {
+           result = "NO";
         }
         
         return result;
