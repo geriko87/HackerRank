@@ -26,59 +26,70 @@ class Result
 
     public static int getTotalX(List<int> a, List<int> b)
     {
-        List<int> nums = new List<int>();
-        if(a.Count > 1)
-        {
-            for(int i = a[a.Count - 1]; i <= b[0]; i *= a[0])
+            a.Sort();
+            b.Sort();
+
+            List<int> nums = new List<int>();
+
+            if (a.Count > 1)
             {
-                foreach(int num in a)
+                for (int i = a[a.Count - 1]; i <= b[0]; i++)
                 {
-                    if(i % num == 0)
+                    if (IsDivisibleByA(i, a) && IsDivisibleByB(i, b))
                     {
-                        continue;
+                        nums.Add(i);
                     }
-                    else
-                    {
-                        break;
-                    }  
-                }
-                foreach(int num in b)
-                {
-                    if(num % i == 0)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                nums.Add(i);
-            } 
-        }
-        else if(a.Count == 1 && a[0] == 1)
-        {
-            for(int i = 1; i <= b[0]; i++)
-            {
-                if(b[0] % i == 0)
-                {
-                    nums.Add(i);
                 }
             }
-        }
-        else if(a.Count == 1 && a[0] > b[0])
-        {
-            nums.Clear();
-        }
-        else
-        {
-            nums.Add(1);
-        } 
-        return nums.Count;
+            else if (a.Count == 1 && a[0] == 1)
+            {
+                for (int i = 1; i <= b[0]; i++)
+                {
+                    if (IsDivisibleByB(i, b))
+                    {
+                        nums.Add(i);
+                    }
+                }
+            }
+            else if (a.Count == 1 && a[0] > 1 )
+            {
+                for (int i = a[0]; i <= b[0]; i++)
+                {
+                    if (IsDivisibleByB(i, b))
+                    {
+                        nums.Add(i);
+                    }
+                }
+            }
+            else //if (a.Count == 1 && a[0] > b[0])
+            {
+                nums.Clear();
+            }
+            return nums.Count;
     }
-
+    static bool IsDivisibleByA(int number, List<int> list) 
+    {
+            foreach (int num in list)
+            {
+                if (number % num != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+    }
+    static bool IsDivisibleByB(int number, List<int> list)
+    {
+            foreach (int num in list)
+            {
+                if (num % number != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+    }
 }
-
 class Solution
 {
     public static void Main(string[] args)
