@@ -24,25 +24,18 @@ class Result
 
     public static int diagonalDifference(List<List<int>> arr)
     {
-        int num = arr.Count;
    
         int sumToRight = 0;
         int sumToLeft = 0;
         
-        for(int i = 0; i < num; i++)
+        for(int i = 0; i < arr.Count; i++)
         {       
             sumToRight += arr[i][i];
-            sumToLeft += arr[i][num - i - 1];
+            sumToLeft += arr[i][arr.Count - i - 1];
         } 
-        /*for(int i = 0; i < num; i++)
-        {
-            sumToLeft += arr[i][num - i - 1];
-        }*/
-
-        int difference = Math.Abs(sumToRight - sumToLeft);
-        return difference;
+        
+        return Math.Abs(sumToRight - sumToLeft);
     }
-
 }
 
 class Solution
@@ -68,3 +61,4 @@ class Solution
         textWriter.Close();
     }
 }
+
