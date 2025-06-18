@@ -13,7 +13,7 @@ using System.Text;
 using System;
 
 class Result
-{ 
+{
 
     /*
      * Complete the 'simpleArraySum' function below.
@@ -25,13 +25,12 @@ class Result
     public static int simpleArraySum(List<int> ar)
     {
         int sum = 0;
-        foreach(int n in ar)
+        foreach (int n in ar)
         {
             sum += n;
         }
         return sum;
-    }
-
+    }  
 }
 
 class Solution
