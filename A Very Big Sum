@@ -26,11 +26,11 @@ class Result
     {
         long sum = 0;
         
-        foreach(long n in ar)
+        for(int i = 0; i < ar.Count; ++i)
         {
-            sum += n;       
+            sum += ar[i];
         }
-
+        
         return sum;
     }
 
@@ -84,10 +84,12 @@ class Result
     public static long aVeryBigSum(List<long> ar)
     {
         long sum = 0;
-        for(int i = 0; i < ar.Count; ++i)
+        
+        foreach(long n in ar)
         {
-            sum += ar[i];
+            sum += n;       
         }
+
         return sum;
     }
 
