@@ -29,24 +29,24 @@ class Result
 
     public static void countApplesAndOranges(int s, int t, int a, int b, List<int> apples, List<int> oranges)
     {
-        int applesOnHouse = FalledFruitsSummary( s, t, a, apples);
-        int orangesOnHouse = FalledFruitsSummary( s, t, b, oranges);
+        int applesOnHouse = FallenFruits( s, t, a, apples);
+        int orangesOnHouse = FallenFruits( s, t, b, oranges);
         
         Console.WriteLine(applesOnHouse);
         Console.WriteLine(orangesOnHouse);
     }
     
-    public static int FalledFruitsSummary( int startPosition, int finalPosition, int treePosition, List<int> fruitNumbers)
+    public static int FallenFruits( int startPosition, int finalPosition, int treePosition, List<int> fruitNumbers)
     {
-        int sum = 0;
+        int counter = 0;
         for(int i = 0; i < fruitNumbers.Count; ++i)
         {
             if(treePosition + fruitNumbers[i] >= startPosition && treePosition + fruitNumbers[i] <= finalPosition)
             {
-                sum++;
+                counter++;
             }
         }
-        return sum;
+        return counter;
     }
 
 }
